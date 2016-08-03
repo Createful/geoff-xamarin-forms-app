@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+		xmlns:local="clr-namespace:GeoffForms" 
+		x:Class="GeoffForms.GeoffFormsPage">
+	<ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="20, 40, 20, 20"
+                    Android="20, 20, 20, 20"
+                    WinPhone="20, 20, 20, 20" />
+     </ContentPage.Padding>
+	<ContentPage.Content>
+		
+        <StackLayout VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                     Orientation="Vertical"
+                     Spacing="15">
+			<Grid>
+			<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width = "Auto"/>
+					<ColumnDefinition Width = "*"/>
+					<ColumnDefinition Width = "Auto"/>
+				</Grid.ColumnDefinitions>
+			</Grid>
+			<StackLayout
+					VerticalOptions="Fill"
+					HorizontalOptions="FillAndExpand"
+					Orientation="Horizontal"
+					Spacing="20">
+				
+				<Label x:Name="yes" Text="Yes" XAlign="Start"/>
+				<Label x:Name="no" Text="No" XAlign="End"/>
+			</StackLayout>
+			<Image x:Name="geoffImage" Source="resting.png"/>
+            <Label Text="Enter a Question:" />
+            <Entry x:Name="entryText" Text="" BackgroundColor = "#CCCC88"/>
+            <Button x:Name="askButton" Text="Ask Geoff" IsEnabled="true" Clicked="OnAskButtonClick" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
