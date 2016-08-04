@@ -13,7 +13,7 @@ namespace GeoffForms
 
 		public void OnAskButtonClick(object sender, EventArgs e)
 		{
-			Console.WriteLine("You clicked this button");
+			//Console.WriteLine("You clicked this button");
 			OnMagic();
 		}
 
@@ -25,7 +25,7 @@ namespace GeoffForms
 				"Yes",
 				"No"
 			)) {
-				Console.WriteLine("Magic happens here");
+				//Console.WriteLine("Magic happens here");
 
 			}
 		}
