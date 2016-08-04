@@ -21,7 +21,4 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)EmptyClass.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)resting.png" />
-  </ItemGroup>
 </Project>
