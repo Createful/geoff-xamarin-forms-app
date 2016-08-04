@@ -9,6 +9,13 @@ namespace GeoffForms
 
 		Image image;
 
+        ImageSource left;
+        ImageSource resting;
+        ImageSource right;
+        
+
+        ImageCell imagecell;
+
 		ContentView noLabel;
 		ContentView yesLabel;
 
@@ -27,6 +34,10 @@ namespace GeoffForms
 
 			random = new Random();
 
+            resting = ImageSource.FromFile("resting.png");
+            left = ImageSource.FromFile("left_point.png");
+            right = ImageSource.FromFile("right_point.png");
+
 			Reset();
 		}
 
@@ -36,7 +47,7 @@ namespace GeoffForms
 			noLabel.BackgroundColor = neutralBackground;
 
 			image.BackgroundColor = Color.Black;
-			image.Source = "resting.png";
+			image.Source = resting;
 		}
 
 		public void OnAskButtonClick(object sender, EventArgs e)
@@ -70,21 +81,21 @@ namespace GeoffForms
 		}
 
 		void SelectYes() {
-			Highlight(yesLabel, "left_point.png");
+			Highlight(yesLabel,left);
 		}
 
 		void SelectNo()
 		{
-			Highlight(noLabel,"right_point.png");
+			Highlight(noLabel,right);
 		}
 
-		void Highlight(ContentView view, String imageSource) {
+		void Highlight(ContentView view, ImageSource imageSource) {
 			
 			view.BackgroundColor = highlightedBackground;
 			image.Source = imageSource;		
 		}
 
-		void Unhighlight(ContentView view, String imageSource)
+		void Unhighlight(ContentView view, ImageSource imageSource)
 		{
 
 			view.BackgroundColor = neutralBackground;
