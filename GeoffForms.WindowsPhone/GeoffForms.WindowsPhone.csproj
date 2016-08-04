@@ -138,6 +138,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="left_point.png" />
+    <None Include="right_point.png" />
   </ItemGroup>
   <Import Project="..\GeoffForms\GeoffForms.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
