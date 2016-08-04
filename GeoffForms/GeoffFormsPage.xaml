@@ -9,6 +9,7 @@
                     Android="20, 20, 20, 20"
                     WinPhone="20, 20, 20, 20" />
      </ContentPage.Padding>
+	
 	<ContentPage.Content>
 		
         <StackLayout VerticalOptions="FillAndExpand"
@@ -22,12 +23,17 @@
 					Orientation="Horizontal"
 					Spacing="20">
 				
-				<Label x:Name="yes" Text="Yes" XAlign="Start"/>
-				<Label x:Name="no" Text="No" XAlign="End"/>
+				<Label x:Name="yes" Text="Yes" XAlign="Start" FontSize="20"/>
+				<BoxView HorizontalOptions="FillAndExpand"/>
+				<Label x:Name="no" Text="No" XAlign="End" FontSize="20"/>
 			</StackLayout>
-			<Image x:Name="geoffImage" Source="resting.png"/>
-            <Label Text="Enter a Question:" />
-            <Entry x:Name="entryText" Text="" BackgroundColor = "#CCCC88"/>
+			<Image 
+				x:Name="geoffImage" 
+				HorizontalOptions="Fill" 
+				VerticalOptions="Fill" 
+				Source="resting.png"/>
+          <!--  <Label Text="Enter a Question:" />
+            <Entry x:Name="entryText" Text="" BackgroundColor = "#CCCC88"/>-->
             <Button x:Name="askButton" Text="Ask Geoff" IsEnabled="true" Clicked="OnAskButtonClick" />
         </StackLayout>
     </ContentPage.Content>
