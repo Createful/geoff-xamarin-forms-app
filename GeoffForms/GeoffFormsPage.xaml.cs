@@ -61,16 +61,10 @@ namespace GeoffForms
 
 		void Reset()
 		{
-			yesLabel.BackgroundColor = neutralBackground;
-			noLabel.BackgroundColor = neutralBackground;
+			resting.IsVisible = true;
 
 			Unhighlight(yesLabel, yesText, left);
 			Unhighlight(noLabel, noText, right);
-
-			resting.BackgroundColor = Color.Black;
-
-			resting.IsVisible = true;
-
 
             askButton.IsEnabled = true;   
 		}
@@ -89,7 +83,7 @@ namespace GeoffForms
 				resting.BackgroundColor = Color.FromRgb(random.Next(256), random.Next(256), random.Next(256));
 			}
 
-			//resting.BackgroundColor = Color.Black;
+			resting.BackgroundColor = Color.Black;
 
 			int result = random.Next(0, 2);
 			switch (result) {
