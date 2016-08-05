@@ -39,11 +39,19 @@
 					/>
 				</ContentView>
 			</StackLayout>
-			<Image 
+			<Grid x:Name="geoffContainer">
+				<Grid.RowDefinitions>
+					<RowDefinition Height = "*"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width = "*"/>
+				</Grid.ColumnDefinitions>
+			</Grid>
+			<!--<Image 
 				x:Name="geoffImage" 
 				HorizontalOptions="Fill" 
 				VerticalOptions="Fill" 
-				Source="resting.png"/>
+				Source="resting.png"/>-->
           <!--  <Label Text="Enter a Question:" />
             <Entry x:Name="entryText" Text="" BackgroundColor = "#CCCC88"/>-->
             <Button 
