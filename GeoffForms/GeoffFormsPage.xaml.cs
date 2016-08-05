@@ -6,22 +6,22 @@ namespace GeoffForms
 {
 	public partial class GeoffFormsPage : ContentPage
 	{
-
 		Image left;
 		Image resting;
 		Image right;
-
-        //ImageSource left;
-        //ImageSource resting;
-        //ImageSource right;
         
 		ContentView noLabel;
 		ContentView yesLabel;
 
+        Label noText;
+        Label yesText;
+
 		Color neutralBackground = Color.FromRgb(100,100,100);
 		Color highlightedBackground = Color.FromRgb(255,255,200);
 
-		//Grid geoffContainer;
+        Button askButton;
+
+		Grid geoffContainer;
 
 		Random random;
 
@@ -29,11 +29,12 @@ namespace GeoffForms
 		{
 			InitializeComponent();
 
-			//image = this.FindByName<Image>("geoffImage");
-
-
 			noLabel = this.FindByName<ContentView>("no");
 			yesLabel = this.FindByName<ContentView>("yes");
+            yesText = this.FindByName<Label>("yesLettering");
+            noText = this.FindByName<Label>("noLettering");
+            askButton = this.FindByName<Button>("askGeoff");
+            geoffContainer = this.FindByName<Grid>("geoffBox");
 
 			random = new Random();
 
@@ -46,19 +47,14 @@ namespace GeoffForms
 			resting = new Image();
 			resting.Source = ImageSource.FromFile("resting.png");
 
+            //Lay the images on top of each other
+
 			geoffContainer.Children.Add(left);
 			geoffContainer.Children.Add(right);
 			geoffContainer.Children.Add(resting);
 
-
-
-
 			left.IsVisible = false;
 			right.IsVisible = false;
-
-			//resting = ImageSource.FromFile("resting.png");
-   //         left = ImageSource.FromFile("left_point.png");
-   //         right = ImageSource.FromFile("right_point.png");
 
 			Reset();
 		}
@@ -68,22 +64,24 @@ namespace GeoffForms
 			yesLabel.BackgroundColor = neutralBackground;
 			noLabel.BackgroundColor = neutralBackground;
 
-			Unhighlight(yes, left);
-			Unhighlight(no, right);
+			Unhighlight(yesLabel, yesText, left);
+			Unhighlight(noLabel, noText, right);
 
 			resting.IsVisible = true;
 
 			resting.BackgroundColor = Color.Black;
+
+            askButton.IsEnabled = true;   
 		}
 
 		public void OnAskButtonClick(object sender, EventArgs e)
 		{
+            askButton.IsEnabled = false;
 			DoMagic();
 		}
 
 		async void DoMagic() {
 
-			Reset();
 			for (int i = 0; i < 10; i++)
 			{
 				await Task.Delay(100);
@@ -102,37 +100,33 @@ namespace GeoffForms
 					break;
 			}
 
-			await Task.Delay(10 * 1000);
+			await Task.Delay(5 * 1000);
 			Reset();
 		}
 
 		void SelectYes() {
-			Highlight(yesLabel,left);
+			Highlight(yesLabel,yesText,left);
 		}
 
 		void SelectNo()
 		{
-			Highlight(noLabel,right);
+			Highlight(noLabel,noText,right);
 		}
 
-		void Highlight(ContentView view, Image image) {
+		void Highlight(ContentView view, Label text, Image image) {
 			
 			view.BackgroundColor = highlightedBackground;
+            text.TextColor = Color.Black;
 
 			resting.IsVisible = false;
 			image.IsVisible = true;
-
-			//image.SetValue(ItemVisibilityEventArgs,"");
-
-			//image.Source = imageSource;
 		}
 
-		void Unhighlight(ContentView view, Image image)
+		void Unhighlight(ContentView view, Label text, Image image)
 		{
-
+            text.TextColor = Color.White;
 			view.BackgroundColor = neutralBackground;
 			image.IsVisible = false;
-
 		}
 	}
 }

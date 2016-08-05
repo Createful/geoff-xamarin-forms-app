@@ -25,21 +25,23 @@
 					Spacing="20">
 				<ContentView Padding="15" x:Name="yes" >
 				<Label 
-					
+          x:Name="yesLettering"
 					Text="Yes" 
+          TextColor="White"
 					FontSize="20"
 					/>
 				</ContentView>
 				<BoxView HorizontalOptions="FillAndExpand"/>
 				<ContentView Padding="15" x:Name="no" >
 				<Label 
-					Text="No" 
-					XAlign="End" 
+          x:Name ="noLettering"
+					Text="No"
+          TextColor="White"
 					FontSize="20" 
 					/>
 				</ContentView>
 			</StackLayout>
-			<Grid x:Name="geoffContainer">
+			<Grid x:Name="geoffBox">
 				<Grid.RowDefinitions>
 					<RowDefinition Height = "*"/>
 				</Grid.RowDefinitions>
@@ -55,7 +57,7 @@
           <!--  <Label Text="Enter a Question:" />
             <Entry x:Name="entryText" Text="" BackgroundColor = "#CCCC88"/>-->
             <Button 
-				x:Name="askButton" 
+				x:Name="askGeoff" 
 				Text="Ask Geoff" 
 				IsEnabled="true" 
 				Clicked="OnAskButtonClick" 
