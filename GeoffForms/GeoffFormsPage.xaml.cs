@@ -67,9 +67,10 @@ namespace GeoffForms
 			Unhighlight(yesLabel, yesText, left);
 			Unhighlight(noLabel, noText, right);
 
+			resting.BackgroundColor = Color.Black;
+
 			resting.IsVisible = true;
 
-			resting.BackgroundColor = Color.Black;
 
             askButton.IsEnabled = true;   
 		}
